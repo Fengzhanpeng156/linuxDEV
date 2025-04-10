@@ -19,8 +19,11 @@ __used
 __attribute__((section("__versions"))) = {
 	{ 0xfa985410, __VMLINUX_SYMBOL_STR(module_layout) },
 	{ 0x6bc3fbc0, __VMLINUX_SYMBOL_STR(__unregister_chrdev) },
+	{ 0xc2165d85, __VMLINUX_SYMBOL_STR(__arm_iounmap) },
 	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
 	{ 0x34fbc3de, __VMLINUX_SYMBOL_STR(__register_chrdev) },
+	{ 0x5dcf6341, __VMLINUX_SYMBOL_STR(outer_cache) },
+	{ 0xfb961d14, __VMLINUX_SYMBOL_STR(__arm_ioremap) },
 	{ 0xefd6cf06, __VMLINUX_SYMBOL_STR(__aeabi_unwind_cpp_pr0) },
 };
 
@@ -30,4 +33,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "E9C8748093E3227E2B712E7");
+MODULE_INFO(srcversion, "15F04DCA4959DBFF15991B9");

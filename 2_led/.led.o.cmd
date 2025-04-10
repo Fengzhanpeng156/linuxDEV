@@ -489,6 +489,25 @@ deps_/home/feng/linux/IMX6ULL/linux_drivers/2_led/led.o := \
   include/linux/uaccess.h \
   arch/arm/include/asm/uaccess.h \
     $(wildcard include/config/have/efficient/unaligned/access.h) \
+  include/linux/io.h \
+    $(wildcard include/config/have/arch/huge/vmap.h) \
+    $(wildcard include/config/has/ioport/map.h) \
+  arch/arm/include/asm/io.h \
+    $(wildcard include/config/pci.h) \
+    $(wildcard include/config/need/mach/io/h.h) \
+    $(wildcard include/config/pcmcia/soc/common.h) \
+    $(wildcard include/config/isa.h) \
+    $(wildcard include/config/pccard.h) \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/no/generic/pci/ioport/map.h) \
+    $(wildcard include/config/generic/pci/iomap.h) \
+  include/xen/xen.h \
+    $(wildcard include/config/xen.h) \
+    $(wildcard include/config/xen/dom0.h) \
+    $(wildcard include/config/xen/pvh.h) \
+  include/asm-generic/io.h \
+    $(wildcard include/config/generic/iomap.h) \
+  include/linux/vmalloc.h \
 
 /home/feng/linux/IMX6ULL/linux_drivers/2_led/led.o: $(deps_/home/feng/linux/IMX6ULL/linux_drivers/2_led/led.o)
 
