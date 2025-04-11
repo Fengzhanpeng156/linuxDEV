@@ -508,6 +508,7 @@ deps_/home/feng/linux/IMX6ULL/linux_drivers/3_newchrled/newchrled.o := \
   include/asm-generic/io.h \
     $(wildcard include/config/generic/iomap.h) \
   include/linux/vmalloc.h \
+  include/linux/cdev.h \
 
 /home/feng/linux/IMX6ULL/linux_drivers/3_newchrled/newchrled.o: $(deps_/home/feng/linux/IMX6ULL/linux_drivers/3_newchrled/newchrled.o)
 
