@@ -1,0 +1,1 @@
+cmd_/home/feng/linux/IMX6ULL/linux_drivers/example/2_Led/led.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/feng/linux/IMX6ULL/linux_drivers/example/2_Led/led.ko /home/feng/linux/IMX6ULL/linux_drivers/example/2_Led/led.o /home/feng/linux/IMX6ULL/linux_drivers/example/2_Led/led.mod.o
