@@ -5,6 +5,9 @@
 #include <linux/uaccess.h>
 #include <linux/io.h>
 #include <linux/cdev.h>
+#include <linux/device.h>
+
+
 
 #define LED_MAJOR	200
 #define NEWCHRLED_NAME	"NEWCHRLED"
@@ -48,17 +51,24 @@ void cdev_init(struct cdev *cdev, const struct file_operations *fops)
 struct newchrled_dev{
 	struct cdev cdev;	/* 字符设备 */
 	dev_t	devid;
+	struct	class *class;
+	struct	device *device;
 	int		major;
 	int		minor;
 };
 
+struct newchrled_dev newchrled;
+
 static int newchrled_open(struct inode *inode, struct file *filp){
 
+	filp ->private_data = &newchrled;
+	
 	return 0;
 }
 
 static int newchrled_release(struct inode *inode, struct file *filp){
 
+	struct newchrled_dev *dev = (struct newchrled_dev *) filp->private_data;
 	return 0;
 }
 
@@ -94,7 +104,7 @@ static const struct file_operations newchrled_fops = {
 	.release 	= newchrled_release,
 };
 
-struct newchrled_dev newchrled;
+
 
 
 /* 入口 */
@@ -156,9 +166,20 @@ static int __init newchrled_init(void)
 	cdev_init(&newchrled.cdev, &newchrled_fops);
 	ret = cdev_add(&newchrled.cdev, newchrled.devid, NEWCHRCOUNT);
 
-
-
-
+	/* 自动创建设备 */
+	newchrled.class = class_create(THIS_MODULE, NEWCHRLED_NAME);
+	if (IS_ERR(newchrled.class))
+	{
+		return PTR_ERR(newchrled.class);
+		/* code */
+	}
+	/* 创建类 */
+	newchrled.device = device_create(newchrled.class, NULL, newchrled.devid, 
+		NULL, NEWCHRLED_NAME);
+	
+	if (IS_ERR(newchrled.device))
+	return PTR_ERR(newchrled.device);
+	
 	return 0;
 }
 
@@ -176,6 +197,13 @@ static void __exit newchrled_exit(void)
 
 	/* 注销设备号 */
 	unregister_chrdev_region(newchrled.devid, NEWCHRCOUNT);
+
+	/* 摧毁设备 */
+	device_destroy(newchrled.class, newchrled.devid);
+
+
+	/* 摧毁类 */
+	class_destroy(newchrled.class);
 }
 
 

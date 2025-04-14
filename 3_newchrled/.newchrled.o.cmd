@@ -509,6 +509,31 @@ deps_/home/feng/linux/IMX6ULL/linux_drivers/3_newchrled/newchrled.o := \
     $(wildcard include/config/generic/iomap.h) \
   include/linux/vmalloc.h \
   include/linux/cdev.h \
+  include/linux/device.h \
+    $(wildcard include/config/debug/devres.h) \
+    $(wildcard include/config/pinctrl.h) \
+    $(wildcard include/config/dma/cma.h) \
+    $(wildcard include/config/of.h) \
+    $(wildcard include/config/devtmpfs.h) \
+    $(wildcard include/config/sysfs/deprecated.h) \
+  include/linux/ioport.h \
+  include/linux/klist.h \
+  include/linux/pinctrl/devinfo.h \
+    $(wildcard include/config/pm.h) \
+  include/linux/pinctrl/consumer.h \
+  include/linux/seq_file.h \
+  include/linux/pinctrl/pinctrl-state.h \
+  include/linux/pm.h \
+    $(wildcard include/config/vt/console/sleep.h) \
+    $(wildcard include/config/pm/clk.h) \
+    $(wildcard include/config/pm/generic/domains.h) \
+  include/linux/ratelimit.h \
+  arch/arm/include/asm/device.h \
+    $(wildcard include/config/dmabounce.h) \
+    $(wildcard include/config/iommu/api.h) \
+    $(wildcard include/config/arm/dma/use/iommu.h) \
+    $(wildcard include/config/arch/omap.h) \
+  include/linux/pm_wakeup.h \
 
 /home/feng/linux/IMX6ULL/linux_drivers/3_newchrled/newchrled.o: $(deps_/home/feng/linux/IMX6ULL/linux_drivers/3_newchrled/newchrled.o)
 
