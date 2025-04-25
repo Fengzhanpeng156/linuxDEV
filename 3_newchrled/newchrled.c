@@ -17,7 +17,7 @@
 #define SW_MUX_GPIO1_IO03_BASE	(0X020E0068)
 #define SW_PAD_GPIO1_IO03_BASE	(0X020E02F4)
 #define GPIO1_DR_BASE			(0X0209C000)
-#define GPIO1_GDIR_BASE			(0X0209C004)
+#define GPIO1_GDIR_BASE		(0X0209C004)
 
 /* 地址映射后的虚拟地质指针 */
 static void __iomem *IMX6U_CCM_CCGR1;
